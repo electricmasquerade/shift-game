@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://knu5ggq6utgc"]
+
+[ext_resource type="Script" uid="uid://b6y3kynspav6w" path="res://Bodies/player_core.gd" id="1_aygqs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wm2rb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wuakl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wuakl"]
+
+[node name="PlayerCore" type="CharacterBody3D" unique_id=530571987]
+script = ExtResource("1_aygqs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1514534720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("SphereMesh_wm2rb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1508003361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_wuakl")
+
+[node name="CamPitch" type="Node3D" parent="." unique_id=528559565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CamYaw" type="Node3D" parent="CamPitch" unique_id=468387044]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamPitch/CamYaw" unique_id=307336117]
+shape = SubResource("SphereShape3D_wuakl")
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="CamPitch/CamYaw/SpringArm3D" unique_id=610299010]
