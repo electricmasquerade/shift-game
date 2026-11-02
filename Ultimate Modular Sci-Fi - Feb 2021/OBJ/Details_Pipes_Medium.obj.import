@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cl8jko0qcokon"
+path="res://.godot/imported/Details_Pipes_Medium.obj-513d464a05d06ef792e8d9add7803aea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Details_Pipes_Medium.obj-513d464a05d06ef792e8d9add7803aea.mesh"]
+
+source_file="res://Ultimate Modular Sci-Fi - Feb 2021/OBJ/Details_Pipes_Medium.obj"
+dest_files=["res://.godot/imported/Details_Pipes_Medium.obj-513d464a05d06ef792e8d9add7803aea.mesh", "res://.godot/imported/Details_Pipes_Medium.obj-513d464a05d06ef792e8d9add7803aea.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
