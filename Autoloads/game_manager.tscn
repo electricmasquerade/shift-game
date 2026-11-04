@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cjjlgx2jgi6qt" path="res://Autoloads/game_manager.gd" id="1_rtikh"]
 
 [node name="GameManager" type="Node" unique_id=1502673662]
+process_mode = 3
 script = ExtResource("1_rtikh")

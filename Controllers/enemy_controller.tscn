@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://baomn5h8r6vxy"]
+
+[ext_resource type="Script" uid="uid://s4aud5uhs3e3" path="res://Controllers/enemy_controller.gd" id="1_7ilre"]
+
+[node name="EnemyController" type="Node3D" unique_id=1959152664]
+script = ExtResource("1_7ilre")

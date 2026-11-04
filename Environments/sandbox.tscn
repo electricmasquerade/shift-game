@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://uygxf52p2h71"]
 
 [ext_resource type="Material" uid="uid://q3d6ng3o6idr" path="res://Assets/Materials/uvgrid/uvgrid.tres" id="1_8oscj"]
-[ext_resource type="PackedScene" uid="uid://knu5ggq6utgc" path="res://Bodies/player_core.tscn" id="2_bv0cw"]
+[ext_resource type="PackedScene" uid="uid://baomn5h8r6vxy" path="res://Controllers/enemy_controller.tscn" id="2_qpj41"]
+[ext_resource type="PackedScene" uid="uid://kdsylqmtrrhl" path="res://Bodies/drone.tscn" id="3_qpj41"]
+[ext_resource type="PackedScene" uid="uid://d18xvyxch5rhd" path="res://Controllers/player_controller.tscn" id="4_m0kq6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bv0cw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,6 +18,11 @@ sky = SubResource("Sky_xihmy")
 
 [node name="Sandbox" type="Node3D" unique_id=1064977585]
 
+[node name="Drone2" parent="." unique_id=1432283229 node_paths=PackedStringArray("controller") instance=ExtResource("3_qpj41")]
+controller = NodePath("EnemyController")
+
+[node name="EnemyController" parent="Drone2" unique_id=1959152664 instance=ExtResource("2_qpj41")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=634943444]
 environment = SubResource("Environment_qpj41")
 
@@ -29,5 +36,9 @@ use_collision = true
 size = Vector3(50, 2, 50)
 material = ExtResource("1_8oscj")
 
-[node name="PlayerCore" parent="." unique_id=530571987 instance=ExtResource("2_bv0cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14239204, 1.1920929e-07, -0.29035592)
+[node name="Drone" parent="." unique_id=505338016 node_paths=PackedStringArray("controller") instance=ExtResource("3_qpj41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.549345, 0, -0.2631197)
+controller = NodePath("PlayerController")
+
+[node name="PlayerController" parent="Drone" unique_id=2015174566 instance=ExtResource("4_m0kq6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2, 0)
