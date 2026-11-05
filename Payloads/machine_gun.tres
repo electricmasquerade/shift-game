@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Payload" format=3 uid="uid://cxtcxlurwd4yu"]
+
+[ext_resource type="Script" uid="uid://8qtm6e8go3rc" path="res://Payloads/payload.gd" id="1_m05ig"]
+
+[resource]
+script = ExtResource("1_m05ig")
+cooldown = 0.2
+metadata/_custom_type_script = "uid://8qtm6e8go3rc"

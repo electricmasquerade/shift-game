@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ca6d6foax66yf"]
+
+[ext_resource type="Script" uid="uid://cf6ko73u6sfp5" path="res://Controllers/shift_box.gd" id="1_yak4f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wm2rb"]
+size = Vector3(2.2, 7, 3)
+
+[node name="ShiftBox" type="Area3D" unique_id=1176765686]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_yak4f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=517441997]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.1920929e-07, -1.1920929e-07, -4)
+shape = SubResource("BoxShape3D_wm2rb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -21,6 +21,8 @@ GameManager="*uid://dmg8x8uk12eyk"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -69,8 +71,10 @@ pause={
 
 [layer_names]
 
-3d_physics/layer_1="player"
+3d_physics/layer_1="movement"
 3d_physics/layer_2="env"
+3d_physics/layer_3="enemy_hitbox"
+3d_physics/layer_4="enemy_hitbox"
 
 [physics]
 
@@ -81,3 +85,4 @@ pause={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_3d=1

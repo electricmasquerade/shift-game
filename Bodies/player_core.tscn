@@ -1,19 +1,27 @@
 [gd_scene format=3 uid="uid://knu5ggq6utgc"]
 
 [ext_resource type="Script" uid="uid://b6y3kynspav6w" path="res://Bodies/player_core.gd" id="1_aygqs"]
+[ext_resource type="Script" uid="uid://cnosqtngyayub" path="res://Bodies/HealthMonitor.gd" id="2_ct12n"]
+[ext_resource type="PackedScene" uid="uid://ca6d6foax66yf" path="res://Controllers/shift_box.tscn" id="3_8qvtb"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_wm2rb"]
+[sub_resource type="Resource" id="Resource_aygqs"]
+script = ExtResource("2_ct12n")
+metadata/_custom_type_script = "uid://cnosqtngyayub"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wuakl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wuakl"]
 
-[node name="PlayerCore" type="CharacterBody3D" unique_id=530571987]
-script = ExtResource("1_aygqs")
+[sub_resource type="SphereMesh" id="SphereMesh_wm2rb"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1514534720]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-mesh = SubResource("SphereMesh_wm2rb")
+[sub_resource type="BoxMesh" id="BoxMesh_wuakl"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="PlayerCore" type="CharacterBody3D" unique_id=530571987 node_paths=PackedStringArray("pivot")]
+collision_mask = 2
+script = ExtResource("1_aygqs")
+health_monitor = SubResource("Resource_aygqs")
+pivot = NodePath("Pivot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1508003361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -25,8 +33,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 [node name="CamPitch" type="Node3D" parent="CamYaw" unique_id=468387044]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CamYaw/CamPitch" unique_id=307336117]
+collision_mask = 2
 shape = SubResource("SphereShape3D_wuakl")
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="CamYaw/CamPitch/SpringArm3D" unique_id=610299010]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.98480767, 0.17364816, 0, -0.17364816, 0.98480767, 0, 0, 0)
+
+[node name="Pivot" type="Node3D" parent="." unique_id=667803492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1514534720]
+mesh = SubResource("SphereMesh_wm2rb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/MeshInstance3D" unique_id=1306844785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_wuakl")
+
+[node name="ShiftBox" parent="Pivot" unique_id=1176765686 instance=ExtResource("3_8qvtb")]

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://uygxf52p2h71"]
+
+[ext_resource type="PackedScene" uid="uid://kdsylqmtrrhl" path="res://Bodies/drone.tscn" id="1_2gnda"]
+[ext_resource type="PackedScene" uid="uid://baomn5h8r6vxy" path="res://Controllers/enemy_controller.tscn" id="2_e3h5w"]
+[ext_resource type="Material" uid="uid://q3d6ng3o6idr" path="res://Assets/Materials/uvgrid/uvgrid.tres" id="3_d3tmc"]
+[ext_resource type="PackedScene" uid="uid://knu5ggq6utgc" path="res://Bodies/player_core.tscn" id="4_ds2dc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bv0cw"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xihmy"]
+sky_material = SubResource("ProceduralSkyMaterial_bv0cw")
+
+[sub_resource type="Environment" id="Environment_qpj41"]
+background_mode = 2
+sky = SubResource("Sky_xihmy")
+
+[node name="Sandbox" type="Node3D" unique_id=1064977585]
+
+[node name="Drone2" parent="." unique_id=1432283229 node_paths=PackedStringArray("controller") instance=ExtResource("1_2gnda")]
+controller = NodePath("EnemyController")
+
+[node name="EnemyController" parent="Drone2" unique_id=1959152664 instance=ExtResource("2_e3h5w")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=634943444]
+environment = SubResource("Environment_qpj41")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1756834224]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 200.0
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=28587181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(50, 2, 50)
+material = ExtResource("3_d3tmc")
+
+[node name="Drone" parent="." unique_id=505338016 node_paths=PackedStringArray("controller") instance=ExtResource("1_2gnda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.549345, 0, -0.2631197)
+controller = NodePath("EnemyController")
+
+[node name="EnemyController" parent="Drone" unique_id=860070774 instance=ExtResource("2_e3h5w")]
+
+[node name="PlayerCore" parent="." unique_id=530571987 instance=ExtResource("4_ds2dc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
