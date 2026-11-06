@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6y3kynspav6w" path="res://Bodies/player_core.gd" id="1_aygqs"]
 [ext_resource type="Script" uid="uid://cnosqtngyayub" path="res://Bodies/HealthMonitor.gd" id="2_ct12n"]
+[ext_resource type="PackedScene" uid="uid://d18xvyxch5rhd" path="res://Controllers/player_controller.tscn" id="2_kvsdf"]
 [ext_resource type="PackedScene" uid="uid://ca6d6foax66yf" path="res://Controllers/shift_box.tscn" id="3_8qvtb"]
 
 [sub_resource type="Resource" id="Resource_aygqs"]
@@ -17,10 +18,12 @@ metadata/_custom_type_script = "uid://cnosqtngyayub"
 [sub_resource type="BoxMesh" id="BoxMesh_wuakl"]
 size = Vector3(0.25, 0.25, 0.25)
 
-[node name="PlayerCore" type="CharacterBody3D" unique_id=530571987 node_paths=PackedStringArray("pivot")]
+[node name="PlayerCore" type="CharacterBody3D" unique_id=530571987 node_paths=PackedStringArray("shiftbox", "pivot")]
 collision_mask = 2
 script = ExtResource("1_aygqs")
+player_controller_scene = ExtResource("2_kvsdf")
 health_monitor = SubResource("Resource_aygqs")
+shiftbox = NodePath("Pivot/ShiftBox")
 pivot = NodePath("Pivot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1508003361]

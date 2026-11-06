@@ -1,6 +1,7 @@
 extends Node3D
 class_name Controller
 var body: CharacterBody3D
+var health_monitor: HealthMonitor
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,4 +26,3 @@ func get_controller_body() -> void:
 		body = current_node
 	else:
 		print("Controller must be a child of a Body node")
-	print(body)

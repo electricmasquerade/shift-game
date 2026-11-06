@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://baomn5h8r6vxy"]
 
 [ext_resource type="Script" uid="uid://s4aud5uhs3e3" path="res://Controllers/enemy_controller.gd" id="1_7ilre"]
+[ext_resource type="PackedScene" uid="uid://lwluay28navc" path="res://UI/3d_meters.tscn" id="2_0pdj6"]
 
 [node name="EnemyController" type="Node3D" unique_id=1959152664]
 script = ExtResource("1_7ilre")
+
+[node name="3DMeters" parent="." unique_id=569527132 instance=ExtResource("2_0pdj6")]

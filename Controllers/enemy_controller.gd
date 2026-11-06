@@ -8,5 +8,5 @@ func _ready() -> void:
 	
 	
 func die():
-	print("removing enemy controller")
+	#print("removing enemy controller")
 	queue_free()

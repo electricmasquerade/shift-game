@@ -15,7 +15,12 @@ var state: BodyState = BodyState.IDLE
 #All bodies must have a controller that runs the movement or AI or whatever
 @export var controller: Controller
 @export var health_monitor: HealthMonitor
+@export var shiftbox: ShiftBox
+@export var enemy_controller_scene: PackedScene
 @export var speed: float = 5.0
+@export var shift_travel_time: float = 0.3
+@export var shift_rotate_time: float = 0.4
+
 @export var cam_marker: Marker3D
 @export var pivot: Node3D
 @export var glow: MeshInstance3D
@@ -32,29 +37,45 @@ var shift_target: bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(controller)
-	#controller.reparent(cam_marker)
-	print(controller)
+	if controller == null:
+		# spawn enemy controller
+		var new_controller = enemy_controller_scene.instantiate()
+		add_child(new_controller)
+		controller=new_controller
+
 	controller.global_position = pivot.global_position
 
 func _physics_process(delta: float) -> void:
 	controller.update()
 	move_and_slide()
 	
-func shift_into(player_controller: Controller) -> void:
+func shift_into(player_controller: Controller, transition: bool) -> void:
 	controller.die()
 	player_controller.reparent(cam_marker, true)
 	controller = player_controller
 	# tween the controller to get it back to the cam marker position (0,0,0 relatively)
-	var tween: Tween = create_tween()
-	tween.tween_property(controller, "position", Vector3.ZERO, 0.5)
-	tween.tween_property(controller, "rotation", Vector3.ZERO, 0.1)
+	if transition:
+		GameManager.set_speed_lines(true, 0.1)
+		var tween: Tween = create_tween()
+		#tween.set_parallel(true)
+		tween.tween_property(controller, "position", Vector3.ZERO, shift_travel_time)
+		#tween.set_parallel(true)
+		tween.tween_callback(GameManager.fade_to_black.bind(shift_rotate_time))
+		tween.parallel().tween_property(controller, "rotation", Vector3.ZERO, shift_rotate_time)
+		await tween.finished
+		GameManager.set_speed_lines(false, 0.01)
+
+		
+	else:
+		controller.position = Vector3.ZERO
+		controller.rotation = Vector3.ZERO
 	change_state(BodyState.PLAYER)
 	
 func shift_out() -> void:
 	#remove the player controller and add back the AI controller
-	remove_child(controller)
-	cam_marker.add_child(controller)
+	#remove_child(controller)
+	#cam_marker.add_child(controller)
+	print("shifting out")
 	change_state(BodyState.ACTIVE)
 
 func change_state(new_state: BodyState) -> void:
@@ -69,7 +90,8 @@ func change_state(new_state: BodyState) -> void:
 			pass
 		BodyState.PLAYER:
 			set_enemy_collision()
-			
+			# reset velocities, it keeps inheriting player speed with no AI to override
+			velocity = Vector3.ZERO
 		BodyState.DEAD:
 			pass
 	#handle entering state:
@@ -83,7 +105,8 @@ func change_state(new_state: BodyState) -> void:
 		BodyState.PLAYER:
 			#entering player needs to set new collision layers and stuff
 			set_player_collision()
-			pass
+			
+			
 		BodyState.DEAD:
 			dead.emit()
 		

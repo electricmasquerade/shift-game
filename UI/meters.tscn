@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dg81ou38qswmj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icjf5"]
+bg_color = Color(0.2538427, 0.25384274, 0.25384268, 0.85882354)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spbiu"]
+bg_color = Color(0.85302585, 2.2862107e-06, 8.663535e-07, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq37n"]
+bg_color = Color(0.7607843, 0.9372549, 1, 0.78431374)
+
+[node name="Meters" type="Control" unique_id=399506031]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1693691199]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=155546905]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+
+[node name="LifeBar" type="ProgressBar" parent="CenterContainer/VBoxContainer" unique_id=1549478353]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_icjf5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_spbiu")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="CenterContainer/VBoxContainer" unique_id=2104545292]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_icjf5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dq37n")
+step = 1.0
+value = 100.0
+show_percentage = false

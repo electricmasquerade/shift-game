@@ -1,7 +1,49 @@
 [gd_scene format=3 uid="uid://dmg8x8uk12eyk"]
 
 [ext_resource type="Script" uid="uid://cjjlgx2jgi6qt" path="res://Autoloads/game_manager.gd" id="1_rtikh"]
+[ext_resource type="Shader" uid="uid://diybybeqteb2q" path="res://Assets/Shaders/speed_lines.gdshader" id="2_dmm7s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mx4pe"]
+frequency = 0.15
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3n4oc"]
+noise = SubResource("FastNoiseLite_mx4pe")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6lji"]
+shader = ExtResource("2_dmm7s")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/noise = SubResource("NoiseTexture2D_3n4oc")
+shader_parameter/sample_radius = 0.5270000250325
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/center_radius = 0.2800000133
+shader_parameter/hole_smoothness = 0.4270000202825
+shader_parameter/hole_radius = 0.34
+shader_parameter/transparency = 1.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o3mpq"]
 
 [node name="GameManager" type="Node" unique_id=1502673662]
 process_mode = 3
 script = ExtResource("1_rtikh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952405133]
+
+[node name="SpeedLines" type="TextureRect" parent="CanvasLayer" unique_id=1386269122]
+visible = false
+material = SubResource("ShaderMaterial_c6lji")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_o3mpq")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1270452603]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.12408299, 0.12408296, 0.12408296, 1)

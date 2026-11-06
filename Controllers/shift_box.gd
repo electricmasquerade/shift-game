@@ -1,4 +1,5 @@
 extends Area3D
+class_name ShiftBox
 
 var targets: Array[Body]
 var target: Body:
@@ -26,7 +27,7 @@ func _on_area_entered(area: Area3D) -> void:
 		current_node = current_node.get_parent()
 	if current_node is Body:
 		targets.append(current_node)
-		print(targets)
+		#print(targets)
 	else:
 		print("No Target found")
 	update_target()
@@ -40,7 +41,7 @@ func _on_area_exited(area: Area3D) -> void:
 		current_node = current_node.get_parent()
 	if current_node is Body:
 		targets.erase(current_node)
-		print(targets)
+		#print(targets)
 	else:
 		print("something is wrong")
 	update_target()
