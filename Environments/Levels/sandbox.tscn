@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kdsylqmtrrhl" path="res://Bodies/drone.tscn" id="1_2gnda"]
 [ext_resource type="Material" uid="uid://q3d6ng3o6idr" path="res://Assets/Materials/uvgrid/uvgrid.tres" id="3_d3tmc"]
+[ext_resource type="Script" uid="uid://cnosqtngyayub" path="res://Bodies/HealthMonitor.gd" id="4_2gnda"]
 [ext_resource type="PackedScene" uid="uid://knu5ggq6utgc" path="res://Bodies/player_core.tscn" id="4_ds2dc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bv0cw"]
@@ -14,6 +15,24 @@ sky_material = SubResource("ProceduralSkyMaterial_bv0cw")
 [sub_resource type="Environment" id="Environment_qpj41"]
 background_mode = 2
 sky = SubResource("Sky_xihmy")
+
+[sub_resource type="Resource" id="Resource_e3h5w"]
+resource_local_to_scene = true
+script = ExtResource("4_2gnda")
+stun = 50.0
+metadata/_custom_type_script = "uid://cnosqtngyayub"
+
+[sub_resource type="Resource" id="Resource_d3tmc"]
+resource_local_to_scene = true
+script = ExtResource("4_2gnda")
+stun = 50.0
+metadata/_custom_type_script = "uid://cnosqtngyayub"
+
+[sub_resource type="Resource" id="Resource_l1bpi"]
+resource_local_to_scene = true
+script = ExtResource("4_2gnda")
+stun = 50.0
+metadata/_custom_type_script = "uid://cnosqtngyayub"
 
 [node name="Sandbox" type="Node3D" unique_id=1064977585]
 
@@ -39,9 +58,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 
 [node name="Drone" parent="." unique_id=1432283229 instance=ExtResource("1_2gnda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5)
+state = 2
+health_monitor = SubResource("Resource_e3h5w")
 
 [node name="Drone2" parent="." unique_id=8560352 instance=ExtResource("1_2gnda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+state = 2
+health_monitor = SubResource("Resource_d3tmc")
 
 [node name="Drone3" parent="." unique_id=638888618 instance=ExtResource("1_2gnda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5)
+state = 2
+health_monitor = SubResource("Resource_l1bpi")

@@ -20,13 +20,31 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not body.is_on_floor():
 		body.velocity += body.get_gravity() * delta
+		
+	if Input.is_action_pressed("main_weapon_fire"):
+	# get raycast from center of screen
+		var viewport: Viewport = get_viewport()
+		var origin: Vector3 = fps_cam.project_ray_origin(viewport.get_visible_rect().size / 2)
+		var direction: Vector3 = fps_cam.project_ray_normal(viewport.get_visible_rect().size / 2)
+		var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+		var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(origin, origin + direction * 1000)
+		query.exclude = [body]
+		query.collide_with_areas = true
+		var result: Dictionary = space_state.intersect_ray(query)
+		if result:
+			var target_position: Vector3 = result.position
+			body.fire_main_weapon(target_position)
+		else:
+			var target_position: Vector3 = origin + direction * 1000
+			body.fire_main_weapon(target_position)
+
 	
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if Input.is_action_just_pressed("shift"):
 		#print("here's the target")
 		#print(body.shiftbox.target)
 		target = body.shiftbox.target
-		if target:
+		if target and target.state == Body.BodyState.STUNNED:
 			shift_into(target, true)
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (body.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

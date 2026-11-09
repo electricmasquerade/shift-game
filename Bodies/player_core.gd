@@ -60,11 +60,12 @@ func shift(target: Body) -> void:
 	# tween current camera towards the new one
 	var tween: Tween = create_tween()
 	#tween.set_parallel(true)
-	GameManager.speed_lines.visible = true
+	GameManager.set_speed_lines(true, 0.1)
 	tween.tween_property(third_per_cam, "global_position", new_player_controller.fps_cam.global_position, shift_travel_time)
-	tween.tween_property(third_per_cam, "global_rotation", new_player_controller.fps_cam.global_rotation, shift_rotate_time)
+	tween.tween_callback(GameManager.fade_to_black.bind(shift_rotate_time))
+	tween.parallel().tween_property(third_per_cam, "global_rotation", new_player_controller.fps_cam.global_rotation, shift_rotate_time)
 	await tween.finished
-	GameManager.speed_lines.visible = false
+	GameManager.set_speed_lines(false, 0.1)
 	new_player_controller.fps_cam.current = true
 	change_state(BodyState.DEAD)
 	despawn()

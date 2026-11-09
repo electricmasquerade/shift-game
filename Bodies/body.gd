@@ -11,10 +11,13 @@ enum BodyState{
 	DEAD
 }
 	
-var state: BodyState = BodyState.IDLE
+@export var state: BodyState = BodyState.IDLE
 #All bodies must have a controller that runs the movement or AI or whatever
 @export var controller: Controller
 @export var health_monitor: HealthMonitor
+@export var health_bars: SubViewport
+@export var health_bar_sprite: Sprite3D
+@export var hitbox: Area3D
 @export var shiftbox: ShiftBox
 @export var enemy_controller_scene: PackedScene
 @export var speed: float = 5.0
@@ -26,7 +29,10 @@ var state: BodyState = BodyState.IDLE
 @export var glow: MeshInstance3D
 
 var shift_target: bool:
+	
 	set(value):
+		if not state == BodyState.STUNNED:
+			return
 		if value:
 			glow.visible = true
 		else:
@@ -39,11 +45,20 @@ var shift_target: bool:
 func _ready() -> void:
 	if controller == null:
 		# spawn enemy controller
-		var new_controller = enemy_controller_scene.instantiate()
+		var new_controller: Controller = enemy_controller_scene.instantiate()
 		add_child(new_controller)
 		controller=new_controller
 
 	controller.global_position = pivot.global_position
+	
+	if hitbox:
+		hitbox.connect("area_entered", Callable(self, "_on_hitbox_area_entered"))
+	
+	if health_monitor:
+		health_monitor.connect("dead", Callable(self, "die"))
+		health_monitor.connect("stunned", Callable(self, "stunned"))
+		
+	health_bars.set_max(health_monitor.health, health_monitor.stun)
 
 func _physics_process(delta: float) -> void:
 	controller.update()
@@ -64,8 +79,6 @@ func shift_into(player_controller: Controller, transition: bool) -> void:
 		tween.parallel().tween_property(controller, "rotation", Vector3.ZERO, shift_rotate_time)
 		await tween.finished
 		GameManager.set_speed_lines(false, 0.01)
-
-		
 	else:
 		controller.position = Vector3.ZERO
 		controller.rotation = Vector3.ZERO
@@ -76,7 +89,7 @@ func shift_out() -> void:
 	#remove_child(controller)
 	#cam_marker.add_child(controller)
 	print("shifting out")
-	change_state(BodyState.ACTIVE)
+	change_state(BodyState.STUNNED)
 
 func change_state(new_state: BodyState) -> void:
 	var current_state: BodyState = state
@@ -92,6 +105,9 @@ func change_state(new_state: BodyState) -> void:
 			set_enemy_collision()
 			# reset velocities, it keeps inheriting player speed with no AI to override
 			velocity = Vector3.ZERO
+			#show health bars
+			if health_bar_sprite:
+				health_bar_sprite.visible = true
 		BodyState.DEAD:
 			pass
 	#handle entering state:
@@ -105,6 +121,8 @@ func change_state(new_state: BodyState) -> void:
 		BodyState.PLAYER:
 			#entering player needs to set new collision layers and stuff
 			set_player_collision()
+			if health_bar_sprite:
+				health_bar_sprite.visible = false
 			
 			
 		BodyState.DEAD:
@@ -121,3 +139,18 @@ func set_enemy_collision() -> void:
 	set_collision_layer_value(1, false)
 	set_collision_layer_value(3, true)
 	
+func fire_main_weapon(target: Vector3) -> void:
+	pass
+
+func _on_hitbox_area_entered(area: Area3D) -> void:
+	if area is Projectile:
+		if area.payload:
+			health_monitor.take_damage(area.payload)
+			health_bars.update_bars(health_monitor.health, health_monitor.stun)
+
+func die() -> void:
+	pass
+	#print("body died")
+	
+func stunned() -> void:
+	change_state(BodyState.STUNNED)

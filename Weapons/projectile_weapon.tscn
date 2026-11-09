@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://dpkdm4jg6edlo"]
 
 [ext_resource type="Script" uid="uid://bxv30mb1p6xvr" path="res://Weapons/projectile_weapon.gd" id="1_7ba7g"]
-[ext_resource type="Script" uid="uid://8qtm6e8go3rc" path="res://Payloads/payload.gd" id="2_mealj"]
-
-[sub_resource type="Resource" id="Resource_fc0l3"]
-script = ExtResource("2_mealj")
-metadata/_custom_type_script = "uid://8qtm6e8go3rc"
 
 [node name="ProjectileWeapon" type="Node3D" unique_id=863831517]
 script = ExtResource("1_7ba7g")
-payload = SubResource("Resource_fc0l3")
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1124292238]
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

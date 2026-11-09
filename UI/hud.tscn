@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://u3x3gkdcenil"]
+
+[ext_resource type="Texture2D" uid="uid://ch1e2jkuliksr" path="res://UI/Crosshairs/Light/crosshair-020.svg" id="1_ne75i"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1850712207]
+
+[node name="Control" type="Control" parent="." unique_id=1051038571]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=511419505]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/CenterContainer" unique_id=1830892730]
+layout_mode = 2
+texture = ExtResource("1_ne75i")

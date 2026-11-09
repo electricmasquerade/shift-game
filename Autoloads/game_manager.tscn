@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dmg8x8uk12eyk"]
 
 [ext_resource type="Script" uid="uid://cjjlgx2jgi6qt" path="res://Autoloads/game_manager.gd" id="1_rtikh"]
+[ext_resource type="PackedScene" uid="uid://u3x3gkdcenil" path="res://UI/hud.tscn" id="2_c6lji"]
 [ext_resource type="Shader" uid="uid://diybybeqteb2q" path="res://Assets/Shaders/speed_lines.gdshader" id="2_dmm7s"]
+[ext_resource type="PackedScene" uid="uid://mghgj8utdcxe" path="res://UI/debug.tscn" id="2_mx4pe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mx4pe"]
 frequency = 0.15
@@ -25,6 +27,10 @@ shader_parameter/transparency = 1.0
 [node name="GameManager" type="Node" unique_id=1502673662]
 process_mode = 3
 script = ExtResource("1_rtikh")
+
+[node name="HUD" parent="." unique_id=1850712207 instance=ExtResource("2_c6lji")]
+
+[node name="Debug" parent="." unique_id=994838842 instance=ExtResource("2_mx4pe")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952405133]
 

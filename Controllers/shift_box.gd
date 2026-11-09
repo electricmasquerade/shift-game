@@ -4,8 +4,10 @@ class_name ShiftBox
 var targets: Array[Body]
 var target: Body:
 	set(new_target):
+		
 		if target:
 			target.shift_target = false
+		
 		target = new_target
 		if target:
 			target.shift_target = true

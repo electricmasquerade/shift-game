@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckc3v1obeb5a6"
-path.s3tc="res://.godot/imported/T_Trim_03_BaseColor.png-4c5d46b43424828121d0c39023b6d460.s3tc.ctex"
+path.s3tc="res://.godot/imported/T_Trim_03_BaseColor.png-188693b6fe2b24c06b24e29810a325c9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/textures/T_Trim_03_BaseColor.png"
-dest_files=["res://.godot/imported/T_Trim_03_BaseColor.png-4c5d46b43424828121d0c39023b6d460.s3tc.ctex"]
+source_file="res://Assets/Models/Textures/T_Trim_03_BaseColor.png"
+dest_files=["res://.godot/imported/T_Trim_03_BaseColor.png-188693b6fe2b24c06b24e29810a325c9.s3tc.ctex"]
 
 [params]
 
