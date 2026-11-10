@@ -46,7 +46,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shift"):
 		#print("shifting")
 		#print(shiftbox.target)
-		shift(shiftbox.target)
+		if (shiftbox.target):
+			shift(shiftbox.target)
 
 	move_and_slide()
 

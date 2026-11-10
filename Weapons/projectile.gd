@@ -29,4 +29,10 @@ func spawn(new_target: Vector3, new_payload: Payload) -> void:
 
 
 func _on_area_entered(area):
+
 	queue_free()
+
+
+func _on_body_entered(body: Node3D) -> void:
+	print("wall hit")
+		
