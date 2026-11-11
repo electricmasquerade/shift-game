@@ -48,8 +48,8 @@ func _physics_process(delta: float) -> void:
 			shift_into(target, true)
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (body.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var camera_dir: Basis = body.pivot.basis
-	direction = camera_dir * direction
+	#var camera_dir: Basis = body.pivot.basis
+	#direction = camera_dir * direction
 	
 	if direction:
 		body.velocity.x = direction.x * body.speed

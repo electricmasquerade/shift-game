@@ -31,9 +31,10 @@ enum BodyState{
 var shift_target: bool:
 	
 	set(value):
-		if not state == BodyState.STUNNED:
-			return
+		
 		if value:
+			if not state == BodyState.STUNNED:
+				return
 			glow.visible = true
 		else:
 			glow.visible = false
