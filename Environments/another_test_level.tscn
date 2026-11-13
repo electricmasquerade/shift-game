@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://gpkm76rmevlm"]
+
+[ext_resource type="PackedScene" uid="uid://c1cr6gbtxo4hb" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Floor_Command_Large.glb" id="1_vuhlj"]
+[ext_resource type="PackedScene" uid="uid://cjqr6hcvjxgsn" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Ceiling_Tile_Grey_Metal.glb" id="2_5pkio"]
+[ext_resource type="PackedScene" uid="uid://csn07ec7rrkhy" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Wall_Blue.glb" id="3_n2jsm"]
+[ext_resource type="LightmapGIData" uid="uid://c6h5ki6yycgpq" path="res://Environments/Lightmaps/another_test_level.lmbake" id="4_5pkio"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gdig1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_nuhsf"]
+sky_material = SubResource("ProceduralSkyMaterial_gdig1")
+
+[sub_resource type="Environment" id="Environment_lwtbn"]
+background_mode = 2
+sky = SubResource("Sky_nuhsf")
+
+[node name="AnotherTestLevel" type="Node3D" unique_id=1009056330]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2047320797]
+environment = SubResource("Environment_lwtbn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=483503939]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+
+[node name="SciFi Assets" parent="." unique_id=1446523813 instance=ExtResource("1_vuhlj")]
+
+[node name="SciFi Assets2" parent="." unique_id=826617968 instance=ExtResource("2_5pkio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="SciFi Assets5" parent="." unique_id=1471609117 instance=ExtResource("2_5pkio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="SciFi Assets6" parent="." unique_id=1409514316 instance=ExtResource("2_5pkio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="SciFi Assets7" parent="." unique_id=842749102 instance=ExtResource("2_5pkio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="SciFi Assets3" parent="." unique_id=1294964851 instance=ExtResource("3_n2jsm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="SciFi Assets4" parent="." unique_id=1684012842 instance=ExtResource("3_n2jsm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=781500155]
+light_data = ExtResource("4_5pkio")

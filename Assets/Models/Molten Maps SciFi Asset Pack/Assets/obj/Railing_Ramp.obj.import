@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bi1g3x6hya7pc"
+path="res://.godot/imported/Railing_Ramp.obj-51d0512e5d6f9e9ab9940559afa16bec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Railing_Ramp.obj-51d0512e5d6f9e9ab9940559afa16bec.mesh"]
+
+source_file="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/obj/Railing_Ramp.obj"
+dest_files=["res://.godot/imported/Railing_Ramp.obj-51d0512e5d6f9e9ab9940559afa16bec.mesh", "res://.godot/imported/Railing_Ramp.obj-51d0512e5d6f9e9ab9940559afa16bec.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

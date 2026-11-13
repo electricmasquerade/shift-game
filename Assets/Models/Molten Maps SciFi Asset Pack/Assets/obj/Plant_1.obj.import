@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxxjjo3l3od2a"
+path="res://.godot/imported/Plant_1.obj-731f68872c043c473d80cefd1f3b3bfe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plant_1.obj-731f68872c043c473d80cefd1f3b3bfe.mesh"]
+
+source_file="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/obj/Plant_1.obj"
+dest_files=["res://.godot/imported/Plant_1.obj-731f68872c043c473d80cefd1f3b3bfe.mesh", "res://.godot/imported/Plant_1.obj-731f68872c043c473d80cefd1f3b3bfe.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

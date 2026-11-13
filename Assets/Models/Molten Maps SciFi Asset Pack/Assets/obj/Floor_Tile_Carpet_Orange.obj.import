@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqh8m5ib3usd4"
+path="res://.godot/imported/Floor_Tile_Carpet_Orange.obj-8615b85db215ebf782f457f184a2bfbc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Floor_Tile_Carpet_Orange.obj-8615b85db215ebf782f457f184a2bfbc.mesh"]
+
+source_file="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/obj/Floor_Tile_Carpet_Orange.obj"
+dest_files=["res://.godot/imported/Floor_Tile_Carpet_Orange.obj-8615b85db215ebf782f457f184a2bfbc.mesh", "res://.godot/imported/Floor_Tile_Carpet_Orange.obj-8615b85db215ebf782f457f184a2bfbc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

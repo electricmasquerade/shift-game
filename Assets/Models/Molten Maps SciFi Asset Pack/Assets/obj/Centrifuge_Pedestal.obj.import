@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0ls5sh1hjx3c"
+path="res://.godot/imported/Centrifuge_Pedestal.obj-b1327aae2969f94181fa34cf3df87114.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Centrifuge_Pedestal.obj-b1327aae2969f94181fa34cf3df87114.mesh"]
+
+source_file="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/obj/Centrifuge_Pedestal.obj"
+dest_files=["res://.godot/imported/Centrifuge_Pedestal.obj-b1327aae2969f94181fa34cf3df87114.mesh", "res://.godot/imported/Centrifuge_Pedestal.obj-b1327aae2969f94181fa34cf3df87114.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

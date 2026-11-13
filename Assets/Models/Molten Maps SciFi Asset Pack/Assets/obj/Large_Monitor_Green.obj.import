@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0m145toa8ccn"
+path="res://.godot/imported/Large_Monitor_Green.obj-9f9b98f8b65f635d35bb1fc145ed0ed0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Large_Monitor_Green.obj-9f9b98f8b65f635d35bb1fc145ed0ed0.mesh"]
+
+source_file="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/obj/Large_Monitor_Green.obj"
+dest_files=["res://.godot/imported/Large_Monitor_Green.obj-9f9b98f8b65f635d35bb1fc145ed0ed0.mesh", "res://.godot/imported/Large_Monitor_Green.obj-9f9b98f8b65f635d35bb1fc145ed0ed0.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
