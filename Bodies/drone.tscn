@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ca6d6foax66yf" path="res://Controllers/shift_box.tscn" id="3_0qm61"]
 [ext_resource type="PackedScene" uid="uid://baomn5h8r6vxy" path="res://Controllers/enemy_controller.tscn" id="3_fk3mn"]
 [ext_resource type="Shader" uid="uid://jbfo0wsah7q3" path="res://Assets/Shaders/energyshield.gdshader" id="4_0me06"]
+[ext_resource type="PackedScene" uid="uid://cavwwh7o8is2p" path="res://Bodies/drone.blend" id="5_upm3p"]
 [ext_resource type="PackedScene" uid="uid://lwluay28navc" path="res://UI/3d_meters.tscn" id="6_yd88r"]
 [ext_resource type="PackedScene" uid="uid://dpkdm4jg6edlo" path="res://Weapons/projectile_weapon.tscn" id="7_jb4l0"]
 [ext_resource type="Resource" uid="uid://cxtcxlurwd4yu" path="res://Payloads/machine_gun.tres" id="8_8102o"]
@@ -94,16 +95,19 @@ texture = SubResource("ViewportTexture_unta6")
 [node name="Pivot" type="Node3D" parent="." unique_id=1787087489]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
+[node name="drone" parent="Pivot" unique_id=1817342012 instance=ExtResource("5_upm3p")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
 [node name="Weapons" type="Node3D" parent="Pivot" unique_id=476408568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="ProjectileWeapon" parent="Pivot/Weapons" unique_id=863831517 instance=ExtResource("7_jb4l0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4020412, 1.6062881, -0.55234736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565377, 1.506288, -0.55234736)
 payload = ExtResource("8_8102o")
 projectile_scene = ExtResource("9_8102o")
 
 [node name="ProjectileWeapon2" parent="Pivot/Weapons" unique_id=574448889 instance=ExtResource("7_jb4l0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39955825, 1.6062881, -0.55234736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5424301, 1.4952811, -0.5469022)
 payload = ExtResource("8_8102o")
 projectile_scene = ExtResource("9_8102o")
 
@@ -115,21 +119,24 @@ material_override = SubResource("ShaderMaterial_7ilre")
 mesh = SubResource("SphereMesh_wuakl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=511332446]
+visible = false
 material_override = SubResource("StandardMaterial3D_upm3p")
 mesh = SubResource("CylinderMesh_wm2rb")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Pivot" unique_id=1114565976]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.40000004, 0.100000024, -0.2600183)
+visible = false
 material_override = SubResource("StandardMaterial3D_8102o")
 mesh = SubResource("CylinderMesh_wuakl")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Pivot" unique_id=1256023264]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.39999998, 0.100000024, -0.2600183)
+visible = false
 material_override = SubResource("StandardMaterial3D_bvanw")
 mesh = SubResource("CylinderMesh_wuakl")
 
 [node name="CamMarker" type="Marker3D" parent="Pivot" unique_id=1054300988]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.10000001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23049259, -0.4639989)
 
 [node name="Hitbox" type="Area3D" parent="Pivot" unique_id=815553592]
 collision_layer = 8
