@@ -102,7 +102,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="ProjectileWeapon" parent="Pivot/Weapons" unique_id=863831517 instance=ExtResource("7_jb4l0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565377, 1.506288, -0.55234736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565377, 1.506288, -0.96687627)
 payload = ExtResource("8_8102o")
 projectile_scene = ExtResource("9_8102o")
 
