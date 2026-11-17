@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://q3d6ng3o6idr" path="res://Assets/Materials/uvgrid/uvgrid.tres" id="3_d3tmc"]
 [ext_resource type="Script" uid="uid://cnosqtngyayub" path="res://Bodies/HealthMonitor.gd" id="4_2gnda"]
 [ext_resource type="PackedScene" uid="uid://knu5ggq6utgc" path="res://Bodies/player_core.tscn" id="4_ds2dc"]
+[ext_resource type="PackedScene" uid="uid://bs6f3a7xkthod" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Ramp_Wall_Blue_L.glb" id="5_2gnda"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bv0cw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -70,3 +71,6 @@ health_monitor = SubResource("Resource_d3tmc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5)
 state = 2
 health_monitor = SubResource("Resource_l1bpi")
+
+[node name="SciFi Assets" parent="." unique_id=861211762 instance=ExtResource("5_2gnda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)

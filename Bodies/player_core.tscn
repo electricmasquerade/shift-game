@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cnosqtngyayub" path="res://Bodies/HealthMonitor.gd" id="2_ct12n"]
 [ext_resource type="PackedScene" uid="uid://d18xvyxch5rhd" path="res://Controllers/player_controller.tscn" id="2_kvsdf"]
 [ext_resource type="PackedScene" uid="uid://ca6d6foax66yf" path="res://Controllers/shift_box.tscn" id="3_8qvtb"]
+[ext_resource type="PackedScene" uid="uid://h0p50ovgqofh" path="res://Bodies/playercore.blend" id="4_tt073"]
 
 [sub_resource type="Resource" id="Resource_aygqs"]
 script = ExtResource("2_ct12n")
@@ -46,7 +47,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715576, 0, 0.08715576, 0.996
 [node name="Pivot" type="Node3D" parent="." unique_id=667803492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
+[node name="playercore" parent="Pivot" unique_id=841989825 instance=ExtResource("4_tt073")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1514534720]
+visible = false
 mesh = SubResource("SphereMesh_wm2rb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/MeshInstance3D" unique_id=1306844785]

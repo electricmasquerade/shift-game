@@ -43,6 +43,8 @@ _subresources={
 "nodes": {
 "PATH:Floor Command Large": {
 "generate/physics": true,
+"physics/layer": 2,
+"physics/mask": 0,
 "physics/shape_type": 1
 }
 }
