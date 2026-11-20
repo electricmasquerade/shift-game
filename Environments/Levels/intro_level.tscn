@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cuioqo2itgiix"]
 
 [ext_resource type="PackedScene" uid="uid://c1cr6gbtxo4hb" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Floor_Command_Large.glb" id="1_exb26"]
+[ext_resource type="PackedScene" uid="uid://dgxkvjs00iy13" path="res://Controllers/enemy_manager.tscn" id="1_iinbg"]
+[ext_resource type="PackedScene" uid="uid://kdsylqmtrrhl" path="res://Bodies/drone.tscn" id="2_66e4f"]
 [ext_resource type="PackedScene" uid="uid://bsivr0fd8n3u1" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Generator.glb" id="2_nlcf6"]
 [ext_resource type="PackedScene" uid="uid://bm0q8d5nfull" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Command_Console.glb" id="3_0t08f"]
 [ext_resource type="PackedScene" uid="uid://cor5kn2c36dsk" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Floor_Mid_Path.glb" id="3_1ej08"]
+[ext_resource type="Script" uid="uid://cnosqtngyayub" path="res://Bodies/HealthMonitor.gd" id="3_6n3so"]
 [ext_resource type="PackedScene" uid="uid://b6gptx3d2idr8" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Sleeper Casket Static.glb" id="3_kfxss"]
 [ext_resource type="PackedScene" uid="uid://chfwjsune2aif" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Wall_Grey.glb" id="6_5spv2"]
 [ext_resource type="PackedScene" uid="uid://otcyrmw55q2l" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Ceiling_Light.glb" id="6_cmwck"]
@@ -12,6 +15,18 @@
 [ext_resource type="LightmapGIData" uid="uid://5m80j01xicyw" path="res://Environments/Lightmaps/intro_level.lmbake" id="9_5spv2"]
 [ext_resource type="PackedScene" uid="uid://vkjt5hku0o00" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Corridor_Boundary_4x8.glb" id="10_dufft"]
 [ext_resource type="PackedScene" uid="uid://dp50n42fchpei" path="res://Assets/Models/Molten Maps SciFi Asset Pack/Assets/gtlf/Floor_Tile_Metal.glb" id="13_dufft"]
+
+[sub_resource type="Resource" id="Resource_iinbg"]
+resource_local_to_scene = true
+script = ExtResource("3_6n3so")
+stun = 50.0
+metadata/_custom_type_script = "uid://cnosqtngyayub"
+
+[sub_resource type="Resource" id="Resource_66e4f"]
+resource_local_to_scene = true
+script = ExtResource("3_6n3so")
+stun = 50.0
+metadata/_custom_type_script = "uid://cnosqtngyayub"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kfxss"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,7 +43,20 @@ glow_normalized = true
 
 [node name="IntroLevel" type="Node3D" unique_id=1696899478]
 
+[node name="EnemyManager" parent="." unique_id=419973001 instance=ExtResource("1_iinbg")]
+
+[node name="Drone" parent="EnemyManager" unique_id=1432283229 instance=ExtResource("2_66e4f")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0, 36)
+state = 2
+health_monitor = SubResource("Resource_iinbg")
+
+[node name="Drone2" parent="EnemyManager" unique_id=526539275 instance=ExtResource("2_66e4f")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17, 0, 46)
+state = 2
+health_monitor = SubResource("Resource_66e4f")
+
 [node name="PlayerCore" parent="." unique_id=530571987 instance=ExtResource("7_cmwck")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1290346150]
 environment = SubResource("Environment_5spv2")
@@ -735,7 +763,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 4, 34)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 4, 30)
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=1432053559]
-supersampling = true
+quality = 2
 directional = true
 interior = true
 generate_probes_subdiv = 3
@@ -751,6 +779,13 @@ enable_shadows = true
 [node name="ReflectionProbe2" type="ReflectionProbe" parent="." unique_id=1009224016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4, 40)
 size = Vector3(28, 12, 28)
+box_projection = true
+interior = true
+enable_shadows = true
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="." unique_id=1342246157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 19.5)
+size = Vector3(8, 6, 19)
 box_projection = true
 interior = true
 enable_shadows = true

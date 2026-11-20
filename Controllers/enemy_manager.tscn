@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://ctdloeagiws0w" path="res://Controllers/enemy_manager.gd" id="1_wuc31"]
 
-[node name="EnemyManager" type="Node" unique_id=551805119]
+[node name="EnemyManager" type="Node3D" unique_id=419973001]
 script = ExtResource("1_wuc31")

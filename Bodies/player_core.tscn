@@ -48,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715576, 0, 0.08715576, 0.996
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="playercore" parent="Pivot" unique_id=841989825 instance=ExtResource("4_tt073")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1514534720]
 visible = false

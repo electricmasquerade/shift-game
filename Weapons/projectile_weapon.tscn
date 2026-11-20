@@ -7,4 +7,6 @@ script = ExtResource("1_7ba7g")
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=1124292238]
 
+[node name="WeaponSound" type="AudioStreamPlayer3D" parent="." unique_id=1082038612]
+
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

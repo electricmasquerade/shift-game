@@ -25,9 +25,9 @@ func _physics_process(delta: float) -> void:
 	# get raycast from center of screen
 		var viewport: Viewport = get_viewport()
 		var origin: Vector3 = fps_cam.project_ray_origin(viewport.get_visible_rect().size / 2)
-		var direction: Vector3 = fps_cam.project_ray_normal(viewport.get_visible_rect().size / 2)
+		var shoot_dir: Vector3 = fps_cam.project_ray_normal(viewport.get_visible_rect().size / 2)
 		var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
-		var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(origin, origin + direction * 1000)
+		var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(origin, origin + shoot_dir * 1000)
 		query.exclude = [body]
 		query.collide_with_areas = true
 		var result: Dictionary = space_state.intersect_ray(query)
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			var target_position: Vector3 = result.position
 			body.fire_main_weapon(target_position)
 		else:
-			var target_position: Vector3 = origin + direction * 1000
+			var target_position: Vector3 = origin + shoot_dir * 1000
 			body.fire_main_weapon(target_position)
 
 	

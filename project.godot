@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ShiftGame"
-run/main_scene="uid://uygxf52p2h71"
+run/main_scene="uid://cuioqo2itgiix"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
