@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dpfvs6elh41w6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wu0gr"]
+albedo_color = Color(0.99999994, 0.49536055, 0.19273677, 1)
+emission_enabled = true
+emission = Color(1, 0.6313726, 0.23921569, 1)
+emission_energy_multiplier = 5.0
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_otqx8"]
+material = SubResource("StandardMaterial3D_wu0gr")
+size = Vector2(0.05, 0.05)
+orientation = 2
+
+[node name="MuzzleFlash" type="CPUParticles3D" unique_id=377973618]
+emitting = false
+lifetime = 0.03
+one_shot = true
+explosiveness = 0.9
+randomness = 1.0
+mesh = SubResource("PlaneMesh_otqx8")
+direction = Vector3(0, 0, -1)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0

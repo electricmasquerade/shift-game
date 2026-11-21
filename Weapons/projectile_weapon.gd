@@ -7,17 +7,17 @@ class_name ProjectileWeapon
 @onready var cooldown_timer = $CooldownTimer
 var on_cooldown: bool = false
 @onready var weapon_sound: AudioStreamPlayer3D = $WeaponSound
-@export var muzzle_flash: Node3D
+@export var muzzle_flash: CPUParticles3D
 
 
 func _ready():
 	cooldown_timer.wait_time = payload.cooldown
 	weapon_sound.stream = sound_effect
-	muzzle_flash.visible = false
+
 	
 
 func fire_weapon(target: Vector3) -> void:
-	muzzle_flash.visible = true
+	muzzle_flash.emitting = true
 	if on_cooldown:
 		return
 	var new_projectile: Projectile = projectile_scene.instantiate()
@@ -34,4 +34,3 @@ func fire_weapon(target: Vector3) -> void:
 
 func _on_cooldown_timer_timeout():
 	on_cooldown = false
-	muzzle_flash.visible = false

@@ -150,8 +150,8 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 			health_bars.update_bars(health_monitor.health, health_monitor.stun)
 
 func die() -> void:
-	pass
-	#print("body died")
+	dead.emit()
+	print("body died")
 	
 func stunned() -> void:
 	change_state(BodyState.STUNNED)

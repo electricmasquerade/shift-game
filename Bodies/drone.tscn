@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://cxtcxlurwd4yu" path="res://Payloads/machine_gun.tres" id="8_8102o"]
 [ext_resource type="PackedScene" uid="uid://85dev1wtif83" path="res://Weapons/machine_gun_bullet.tscn" id="9_8102o"]
 [ext_resource type="AudioStream" uid="uid://c40f8b66psaky" path="res://Audio/Snake's Authentic Gun Sounds/Isolated/7.62x39/WAV/762x39 Single Isolated WAV.wav" id="9_bvanw"]
-[ext_resource type="PackedScene" uid="uid://jqei21mifrb" path="res://Assets/MuzzleFlashVFX/BinbunVFX/muzzle_flash/effects/short_flash/short_flash_02.tscn" id="10_donwl"]
+[ext_resource type="PackedScene" uid="uid://dpfvs6elh41w6" path="res://Assets/Shaders/muzzle_flash.tscn" id="10_donwl"]
 
 [sub_resource type="Resource" id="Resource_3skec"]
 resource_local_to_scene = true
@@ -108,19 +108,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55397713, 1.506288, -0.966
 payload = ExtResource("8_8102o")
 projectile_scene = ExtResource("9_8102o")
 sound_effect = ExtResource("9_bvanw")
-muzzle_flash = NodePath("ShortFlash_02")
+muzzle_flash = NodePath("MuzzleFlash")
 
-[node name="ShortFlash_02" parent="Pivot/Weapons/ProjectileWeapon2" unique_id=274320971 instance=ExtResource("10_donwl")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+[node name="MuzzleFlash" parent="Pivot/Weapons/ProjectileWeapon2" unique_id=377973618 instance=ExtResource("10_donwl")]
 
 [node name="ProjectileWeapon" parent="Pivot/Weapons" unique_id=1759934327 node_paths=PackedStringArray("muzzle_flash") instance=ExtResource("7_jb4l0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.565377, 1.506288, -0.96687627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565377, 1.506288, -0.96687627)
 payload = ExtResource("8_8102o")
 projectile_scene = ExtResource("9_8102o")
 sound_effect = ExtResource("9_bvanw")
-muzzle_flash = NodePath("ShortFlash_02")
+muzzle_flash = NodePath("MuzzleFlash")
 
-[node name="ShortFlash_02" parent="Pivot/Weapons/ProjectileWeapon" unique_id=582333188 instance=ExtResource("10_donwl")]
+[node name="MuzzleFlash" parent="Pivot/Weapons/ProjectileWeapon" unique_id=833942596 instance=ExtResource("10_donwl")]
 
 [node name="ShiftBox" parent="Pivot" unique_id=1176765686 instance=ExtResource("3_0qm61")]
 

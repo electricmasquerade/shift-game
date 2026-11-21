@@ -24,5 +24,6 @@ signal dead
 signal stunned
 
 func take_damage(payload: Payload) -> void:
+	#print("damage taken")
 	health -= payload.health_damage
 	stun -= payload.stun_damage

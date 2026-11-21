@@ -94,4 +94,5 @@ func set_speed_lines(value: bool, duration: float) -> void:
 		await tween.finished 
 		speed_lines.visible = false
 	
-		
+func _on_level_completed() -> void:
+	print("level_completed")

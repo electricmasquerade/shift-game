@@ -29,7 +29,6 @@ func spawn(new_target: Vector3, new_payload: Payload) -> void:
 
 
 func _on_area_entered(area):
-
 	queue_free()
 
 
