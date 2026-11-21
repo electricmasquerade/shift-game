@@ -43,6 +43,8 @@ _subresources={
 "nodes": {
 "PATH:Floor Mid Path Corner 2": {
 "generate/physics": true,
+"physics/layer": 2,
+"physics/mask": 0,
 "physics/shape_type": 1
 }
 }

@@ -31,6 +31,7 @@ script = ExtResource("1_rtikh")
 [node name="HUD" parent="." unique_id=1850712207 instance=ExtResource("2_c6lji")]
 
 [node name="Debug" parent="." unique_id=994838842 instance=ExtResource("2_mx4pe")]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952405133]
 
